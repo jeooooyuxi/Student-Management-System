@@ -9,6 +9,7 @@ void menu()
 	printf("***5.显示学生信息     0.退出**************\n");
 	printf("****************************************\n");
 }
+
 int main()
 {
 	int x = 0;
@@ -25,39 +26,7 @@ int main()
 				break;
 			}
 			case 2:
-			{	// 删除学生
-                              void del_stu()
-                             {
-                              if (stu_count == 0)
-                             {
-                               printf("暂无学生信息，无法删除！\n");
-                                   _getch();
-                                     return;
-                                             }
-
-                                    show_all();
-                                    char id[20];
-                                printf("请输入要删除的学生学号：");
-                                scanf("%s", id);
-
-                                 for (int i = 0; i < stu_count; i++)
-                                 {
-                                  if (strcmp(id, stu[i].id) == 0)
-                                 {
-                                  // 数据前移覆盖
-                                 for (int j = i; j < stu_count - 1; j++)
-                                 {
-                                 stu[j] = stu[j + 1];
-                                 }
-                                  stu_count--;
-                                   printf("删除成功！\n");
-                                   _getch();
-                                    return;
-                                   } 
-                                 }
-                                  printf("未找到该学生！\n");
-                                   _getch();
-                                  }
+			{
 				del_stu();
 				break;
 			}
@@ -87,3 +56,36 @@ int main()
 				break;
 			}
 	}
+		// 删除学生
+void del_stu()
+{
+    if (stu_count == 0)
+    {
+        printf("暂无学生信息，无法删除！\n");
+        _getch();
+        return;
+    }
+
+    show_all();
+    char id[20];
+    printf("请输入要删除的学生学号：");
+    scanf("%s", id);
+
+    for (int i = 0; i < stu_count; i++)
+    {
+        if (strcmp(id, stu[i].id) == 0)
+        {
+            // 数据前移覆盖
+            for (int j = i; j < stu_count - 1; j++)
+            {
+                stu[j] = stu[j + 1];
+            }
+            stu_count--;
+            printf("删除成功！\n");
+            _getch();
+            return;
+        }
+    }
+    printf("未找到该学生！\n");
+    _getch();
+}
