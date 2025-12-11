@@ -40,7 +40,7 @@ int main()
 				modify_stu();
 				break;
 			}
-			case5:
+			case 5:
 			{
 				show_stu();
 			}
