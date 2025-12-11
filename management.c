@@ -10,6 +10,40 @@ void menu()
 	printf("****************************************\n");
 }
 
+void add_stu()
+{
+    if (stu_count >= MAX_STU)
+    {
+        printf("学生数量已达上限，无法添加！\n");
+        _getch();
+        return;
+    }
+
+    char id[20];
+    printf("请输入学号：");
+    scanf("%s", id);
+    for (int i = 0; i < stu_count; i++)
+    {
+        if (strcmp(id, stu[i].id) == 0)
+        {
+            printf("该学号已存在！\n");
+            _getch();
+            return;
+        }
+    }
+
+    strcpy(stu[stu_count].id, id);
+    printf("请输入姓名：");
+    scanf("%s", stu[stu_count].name);
+    printf("请输入数学成绩：");
+    scanf("%f", &stu[stu_count].score[0]);
+    printf("请输入英语成绩：");
+    scanf("%f", &stu[stu_count].score[1]);
+
+    stu_count++;
+    printf("添加成功！\n");
+    _getch();
+}
 int main()
 {
 	int x = 0;
@@ -47,7 +81,7 @@ int main()
 			case 0:
 			{
 				
-				printf("已退出通讯录\n");
+				printf("已退出管理系统\n");
 				break;
 		        }
 			default:
