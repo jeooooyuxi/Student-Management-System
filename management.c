@@ -70,10 +70,10 @@ void show_stu()
 		printf("系统为空\n");
 		return;
 	}
-	printf("%21s%21s%10s%10s\n", "姓名", "学号", "数学成绩", "英语成绩");
+	printf("%-21s%-21s%-12s		%-12s\n", "姓名", "学号", "数学成绩", "英语成绩");
 	for(int i = 0;i<stu_count;i++)
 	{
-		printf("%21s%21s%10f%10f\n",stu[i].name, stu[i].id, stu[i].score[0], stu[i].score[1]);
+		printf("%-21s%-21s%-12.2f%-12.2f\n",stu[i].name, stu[i].id, stu[i].score[0], stu[i].score[1]);
 	}
 }
 void del_stu()
