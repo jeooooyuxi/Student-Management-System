@@ -9,6 +9,39 @@ void menu()
 	printf("***5.显示学生信息     0.退出**************\n");
 	printf("****************************************\n");
 }
+int getValidChoice() {
+    char input[10];
+    int choice = -1;
+    while (1) {
+        printf("请输入想执行的操作：");
+        if (scanf("%9s", input) != 1) {
+            printf("输入错误！请输入0-5的数字\n");
+            while (getchar() != '\n');
+            continue;
+        }
+        int isDigit = 1;
+        for (int i = 0; input[i] != '\0'; i++) {
+            if (!isdigit(input[i])) {
+                isDigit = 0;
+                break;
+            }
+        }
+        if (!isDigit) {
+            printf("输入错误！请输入仅包含数字的内容\n");
+            while (getchar() != '\n');
+            continue;
+        }
+
+        choice = atoi(input);
+        if (choice >= 0 && choice <= 5) {
+            break; // 输入合法，退出循环
+        } else {
+            printf("输入错误！请输入0-5之间的数字\n");
+            while (getchar() != '\n');
+        }
+    }
+    return choice;
+}
 void add_stu()
 {
     if (stu_count >= MAX_STU)
@@ -139,8 +172,7 @@ int main()
 	do 
 	{
 		menu();
-		printf("请输入想执行的操作：");
-		scanf("%d", &x);
+		getValidChoice():
 		switch (x)
 		{
 			case 1:
