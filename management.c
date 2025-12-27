@@ -172,7 +172,7 @@ int main()
 	do 
 	{
 		menu();
-		getValidChoice():
+		getValidChoice();
 		switch (x)
 		{
 			case 1:
@@ -211,6 +211,7 @@ int main()
 				printf("输入错误，请重新输入\n");
 				break;
 			}
+		}
 
-	}
-
+	}while(x!=0);
+}
